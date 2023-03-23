@@ -14,17 +14,17 @@ fn main() -> Result<()> {
     //set cursor to 0,0
     execute!(stdout, cursor::MoveTo(0, 0))?;
     //draw horizontal border around terminal
-    for i in 0..size_x - 5 {
+    for i in 0..size_x {
         execute!(stdout, cursor::MoveTo(i, 0), Print("-"))?;
-        execute!(stdout, cursor::MoveTo(i, size_y - 5 - 1), Print("-"))?;
+        execute!(stdout, cursor::MoveTo(i, size_y - 1), Print("-"))?;
     }
     //draw vertical border around terminal
-    for i in 0..size_y - 5 {
+    for i in 0..size_y {
         execute!(stdout, cursor::MoveTo(0, i), Print("|"))?;
-        execute!(stdout, cursor::MoveTo(size_x - 5 - 1, i), Print("|"))?;
+        execute!(stdout, cursor::MoveTo(size_x - 1, i), Print("|"))?;
     }
     //set cursor in the center
-    execute!(stdout, cursor::MoveTo(size_x / 2 - 5, size_y / 2 - 5))?;
+    execute!(stdout, cursor::MoveTo(size_x / 2, size_y / 2))?;
 
     //wait for key press
 
